@@ -10,11 +10,12 @@ import PropTypes from "prop-types";
 
 const AppHead = ({ balance, expenses }) => {
   return (
+    <><h1>Expense Tracker</h1>
     <header className="AppHead">
       <Card text="Wallet Balance" value={balance} />
       <Card text="Expenses" value={expenses} />
       <PieChartComp />
-    </header>
+    </header></>
   );
 };
 

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 //styles
 import './App.css';
 //components
-import Navbar from './components/Navbar/Navbar'
+//import Navbar from './components/Navbar/Navbar'
 import AppHead from './components/AppHead/AppHead'
 import AppBody from './components/AppBody/AppBody';
 //contexts
@@ -12,8 +12,8 @@ import { dummyData } from './dummyTransactions';
 
 function App() {
   const [money, setMoney] = useState({
-    balance: 3800,
-    expenses: 1200
+    balance: 5000,
+    expenses: 0
   })
   const [transactionData, setTransactionData] = useState(dummyData);
   const initialRender = useRef(true);
@@ -47,7 +47,6 @@ function App() {
     <main className='App'>
       <MoneyContext.Provider value={[money, setMoney]}>
       <TransactionsContext.Provider value={[transactionData, setTransactionData]}>
-        <Navbar />
         <AppHead balance={money.balance} expenses={money.expenses}/>
         <AppBody transactionData={transactionData}/>
       </TransactionsContext.Provider> 
