@@ -8,7 +8,7 @@ import AppBody from './components/AppBody/AppBody';
 //contexts
 import { TransactionsContext, MoneyContext } from "./Contexts/AllContexts"
 //variables
-import { dummyData } from './dummyTransactions';
+//import { dummyData } from './dummyTransactions';
 //import Navbar from './components/Navbar/Navbar';
 
 function App() {
@@ -19,7 +19,9 @@ function App() {
     balance: 5000,
     expenses: 0
   })
-  const [transactionData, setTransactionData] = useState(dummyData);
+
+  
+  const [transactionData, setTransactionData] = useState([]);
   const initialRender = useRef(true);
 
 
@@ -52,15 +54,25 @@ function App() {
 
 
   //functions
+  // const onLoad = () => {
+  //   //load data from local storage if present
+  //   const localData = localStorage.getItem("allData");
+  //   if(localData){
+  //     const {money, transactionData} = JSON.parse(localData);
+  //     setMoney(money);
+  //     setTransactionData(transactionData);
+  //   }
+  // }
+
   const onLoad = () => {
-    //load data from local storage if present
-    const localData = localStorage.getItem("allData");
-    if(localData){
-      const {money, transactionData} = JSON.parse(localData);
-      setMoney(money);
-      setTransactionData(transactionData);
-    }
+  const localData = localStorage.getItem("allData");
+  if(localData){
+    const {money, transactionData} = JSON.parse(localData);
+    setMoney(money);
+    setTransactionData(transactionData);
   }
+}
+
   
 
   return (
