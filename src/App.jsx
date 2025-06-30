@@ -12,6 +12,9 @@ import { dummyData } from './dummyTransactions';
 //import Navbar from './components/Navbar/Navbar';
 
 function App() {
+
+  
+
   const [money, setMoney] = useState({
     balance: 5000,
     expenses: 0
@@ -19,18 +22,34 @@ function App() {
   const [transactionData, setTransactionData] = useState(dummyData);
   const initialRender = useRef(true);
 
-  useEffect(()=>{
-    if(initialRender.current)  onLoad();
 
-    return(() => {
-      initialRender.current = false;
-    })
-  }, [])
+  //  useEffect(()=>{
+  //   if(initialRender.current)  onLoad();
 
-  useEffect(()=> {
-    //save data to local storage and if it is initial render skip saving
-    if(!initialRender.current) localStorage.setItem("allData", JSON.stringify({money, transactionData}));
-  }, [money, transactionData])
+  //   return(() => {
+  //     initialRender.current = false;
+  //   })
+  // }, [])
+
+  // useEffect(()=> {
+  //   //save data to local storage and if it is initial render skip saving
+  //   if(!initialRender.current) localStorage.setItem("allData", JSON.stringify({money, transactionData}));
+  // }, [money, transactionData])
+
+
+      useEffect(() => {
+      if (initialRender.current) {
+        onLoad();
+        initialRender.current = false;  // <-- move here
+      }
+    }, []);
+
+    useEffect(() => {
+      if (!initialRender.current) {
+        localStorage.setItem("allData", JSON.stringify({ money, transactionData }));
+      }
+    }, [money, transactionData]);
+
 
   //functions
   const onLoad = () => {
