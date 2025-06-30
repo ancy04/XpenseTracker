@@ -9,6 +9,7 @@ import AppBody from './components/AppBody/AppBody';
 import { TransactionsContext, MoneyContext } from "./Contexts/AllContexts"
 //variables
 import { dummyData } from './dummyTransactions';
+import Navbar from './components/Navbar/Navbar';
 
 function App() {
   const [money, setMoney] = useState({

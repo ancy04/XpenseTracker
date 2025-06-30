@@ -46,7 +46,9 @@ const ModalForm = props => {
         if(formType === "Add Balance"){
             setMoney({
                 ...money,
-                balance: money.balance + balanceFormData.income
+                //balance: money.balance + balanceFormData.income
+                balance: money.balance + Number(balanceFormData.income)
+
             });
         }
         if(formType === "Add Expense"){
@@ -73,10 +75,13 @@ const ModalForm = props => {
             //store transaction data in new variable
             const updatedTransaction = {...formData, id: existingData.id};
             //add that new tranaction at that index with same id
-            transactionData[indexOfTransaction] = updatedTransaction;
+            //transactionData[indexOfTransaction] = updatedTransaction;
+            let updatedTransactions = [...transactionData];
+            updatedTransactions[indexOfTransaction] = updatedTransaction;
+            setTransactionData(updatedTransactions);
 
             setMoney({balance: newBalance, expenses: newExpense});
-            setTransactionData([...transactionData]);
+            //setTransactionData([...transactionData]);
         }
 
         toggleModal();
@@ -92,7 +97,7 @@ const ModalForm = props => {
                 onChange={handleChange} 
                 placeholder='Title' 
                 type='text' 
-                name='title'
+                name='name'
                 autoFocus
                 />
                 <input 
@@ -110,7 +115,8 @@ const ModalForm = props => {
                 onChange={handleChange} 
                 placeholder='Select Category' 
                 name='category'>
-                    <option value={null}>Select Category</option>
+                    {/* <option value={null}>Select Category</option> */}
+                    <option value="">Select Category</option>
                     <option value="food">Food</option>
                     <option value="entertainment">Entertainment</option>
                     <option value="travel">Travel</option>

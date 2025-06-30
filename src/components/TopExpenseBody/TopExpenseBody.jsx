@@ -16,7 +16,8 @@ const TopExpenseBody = () => {
     
     //functions
     const showSortedData = () => {
-        return chartData.sort((a,b) => b.value - a.value);
+        //return chartData.sort((a,b) => b.value - a.value);
+        return [...chartData].sort((a,b) => b.value - a.value);
     }
     
     return (
