@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
 
 const TransactionBar = props => {
     //props
-    const { name, date, amount, category, id } = props;
+    const { title, date, amount, category, id } = props;
     //contexts
     const [money, setMoney] = useContext(MoneyContext);
     const [transactionData, setTransactionData] = useContext(TransactionsContext);
@@ -49,7 +49,7 @@ const TransactionBar = props => {
             </span>
             <span className='TransactionBarBody'>
                 <span className='TransactionText'>
-                    <span className='TransactionName'>{name}</span>
+                    <span className='TransactionName'>{title}</span>
                     <span className='TransactionDate'>{date}</span>
                 </span>
                 <span className='TransactionAmount cardTextRed'>₹{amount}</span>
@@ -60,7 +60,7 @@ const TransactionBar = props => {
                 <Modal 
                 toggleModal={toggleModal} 
                 text="Edit Expense"
-                existingData={{name, date, amount, category, id}}
+                existingData={{title, date, amount, category, id}}
                 /> 
             :null
             }
@@ -70,7 +70,7 @@ const TransactionBar = props => {
 
 
 TransactionBar.propTypes = {
-  name: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
   date: PropTypes.string.isRequired,
   amount: PropTypes.number.isRequired,
   category: PropTypes.string.isRequired,

@@ -38,6 +38,7 @@ const ModalForm = props => {
     }
     const handleChange = evt => {
         const key = evt.target.name, value = evt.target.value;
+        console.log("Updating:", key, value);
         setFormData({...formData, [key]: value });
     }
     const handleSubmit = evt => {
@@ -50,6 +51,7 @@ const ModalForm = props => {
                 balance: money.balance + Number(balanceFormData.income)
 
             });
+
         }
         if(formType === "Add Expense"){
             let newExpense = money.expenses + Number(formData.price);
