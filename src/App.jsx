@@ -32,11 +32,21 @@ function App() {
       }
     }, []);
 
+    // useEffect(() => {
+    //   if (!initialRender.current) {
+    //     localStorage.setItem("allData", JSON.stringify({ money, transactionData }));
+    //   }
+    // }, [money, transactionData]);
+
     useEffect(() => {
-      if (!initialRender.current) {
-        localStorage.setItem("allData", JSON.stringify({ money, transactionData }));
-      }
-    }, [money, transactionData]);
+  if (!initialRender.current) {
+    localStorage.setItem("allData", JSON.stringify({ money, transactionData }));
+    localStorage.setItem("transactions", JSON.stringify(transactionData));
+    localStorage.setItem("money", JSON.stringify(money));
+  }
+}, [money, transactionData]);
+
+
 
 
   const onLoad = () => {
