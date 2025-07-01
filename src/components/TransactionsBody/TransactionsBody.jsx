@@ -61,13 +61,13 @@ const TransactionsBody = () => {
     );
 };
 
-TransactionsBody.propTypes = {
-  pages: PropTypes.shape({
-    currentPage: PropTypes.number.isRequired,
-    totalPages: PropTypes.number.isRequired,
-  }).isRequired,
-  updatePage: PropTypes.func.isRequired,
-};
+// TransactionsBody.propTypes = {
+//   pages: PropTypes.shape({
+//     currentPage: PropTypes.number.isRequired,
+//     totalPages: PropTypes.number.isRequired,
+//   }).isRequired,
+//   updatePage: PropTypes.func.isRequired,
+// };
 
 
 export default TransactionsBody;

@@ -17,7 +17,7 @@ function App() {
 
   const [money, setMoney] = useState({
     balance: 5000,
-    expenses: 0
+    expenses: 1200
   })
 
   
