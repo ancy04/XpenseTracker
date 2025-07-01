@@ -6,7 +6,7 @@ import TransactionBar from '../TransactionBar/TransactionBar';
 import PageNavigateBar from './PageNavigateBar';
 //contexts
 import { TransactionsContext } from '../../Contexts/AllContexts';
-import PropTypes from 'prop-types';
+//import PropTypes from 'prop-types';
 
 const TransactionsBody = () => {
     //contexts

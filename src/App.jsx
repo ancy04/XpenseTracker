@@ -25,21 +25,7 @@ function App() {
   const initialRender = useRef(true);
 
 
-  //  useEffect(()=>{
-  //   if(initialRender.current)  onLoad();
-
-  //   return(() => {
-  //     initialRender.current = false;
-  //   })
-  // }, [])
-
-  // useEffect(()=> {
-  //   //save data to local storage and if it is initial render skip saving
-  //   if(!initialRender.current) localStorage.setItem("allData", JSON.stringify({money, transactionData}));
-  // }, [money, transactionData])
-
-
-      useEffect(() => {
+     useEffect(() => {
       if (initialRender.current) {
         onLoad();
         initialRender.current = false;  // <-- move here
@@ -52,17 +38,6 @@ function App() {
       }
     }, [money, transactionData]);
 
-
-  //functions
-  // const onLoad = () => {
-  //   //load data from local storage if present
-  //   const localData = localStorage.getItem("allData");
-  //   if(localData){
-  //     const {money, transactionData} = JSON.parse(localData);
-  //     setMoney(money);
-  //     setTransactionData(transactionData);
-  //   }
-  // }
 
   const onLoad = () => {
   const localData = localStorage.getItem("allData");
