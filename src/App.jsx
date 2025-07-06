@@ -38,13 +38,15 @@ function App() {
     //   }
     // }, [money, transactionData]);
 
-    useEffect(() => {
+  useEffect(() => {
   if (!initialRender.current) {
     localStorage.setItem("allData", JSON.stringify({ money, transactionData }));
     localStorage.setItem("transactions", JSON.stringify(transactionData));
     localStorage.setItem("money", JSON.stringify(money));
+    localStorage.setItem("expenses", JSON.stringify(transactionData)); 
   }
 }, [money, transactionData]);
+
 
 
 
